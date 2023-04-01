@@ -1,0 +1,130 @@
+{% extends 'seller_dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/s_profile.css' %}">
+    
+</head>
+<body>
+   
+  <!-- The Modal -->
+  <div class="modal" id="DaModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+     
+  
+        <!-- Modal body -->
+        <div class="modal-body" style="font-size: 20px;color:black">
+         Do you want to delete your account ?
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <p></p>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success" >
+            <a href="{% url 'seller:seller_delete' user.id %}"  style="color:rgb(255, 255, 255);text-decoration:none;">Confirm Delete</a>
+
+          </button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  
+  <article class="cssui-usercard">
+		<div class="cssui-usercard__body">
+			<header class="cssui-usercard__header">
+				 <svg class="cssui-usercard__avatar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="230" height="230" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><circle cx="128" cy="120" r="40" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/><path d="M63.8,199.4a72,72,0,0,1,128.4,0" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8"/></svg>
+				<div class="cssui-usercard__header-info">
+					<h3 class="cssui-usercard__name"><span class="cssui-usercard__name-label">{{user.Fullname}}</span></h3>
+					<span class="cssui-usercard__post">{{user.Username}}</span>
+				</div>
+			</header>
+			<div class="cssui-usercard__content">
+				<div class="cssui-slider">
+
+					<!-- the control elements of slider -->
+
+					<input id="slide1" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls" checked autofocus>
+					<label for="slide1" class="cssui-slider__control cssui-usercard__control"></label>
+					<input id="slide2" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls">
+					<label for="slide2" class="cssui-slider__control cssui-usercard__control"></label>
+					<input id="slide3" type="radio" class="cssui-slider__switch cssui-usercard__switch" name="slider-controls">
+					<label for="slide3" class="cssui-slider__control cssui-usercard__control"></label>
+
+					<div class="cssui-slider__slides">
+
+						<!-- first slide -->
+
+						<div class="cssui-slider__slide">
+							<h4 class="cssui-usercard__title">About me</h4>
+							<div class="cssui-usercard__stats">
+								<div class="cssui-stats cssui-usercard__stats-item">
+									<i class="cssui-icon icon-earth"></i>
+									<div class="cssui-stats__info cssui-usercard__stats-info">
+										<span class="cssui-stats__name cssui-usercard__stats-name">{{user.Email}}</span>
+										<span class="cssui-stats__value">Email</span>
+									</div>
+								</div>
+								<div class="cssui-stats cssui-usercard__stats-item">
+									<i class="cssui-icon icon-location"></i>
+									<div class="cssui-stats__info cssui-usercard__stats-info">
+										<span class="cssui-stats__name cssui-usercard__stats-name">{{user.Mobile}}</span>
+										<span class="cssui-stats__value">Mobile Number</span>
+									</div>
+								</div>
+								<div class="cssui-stats cssui-usercard__stats-item">
+									<i class="cssui-icon icon-calendar"></i>
+									<div class="cssui-stats__info cssui-usercard__stats-info">
+										<span class="cssui-stats__name cssui-usercard__stats-name">{{user.Age}}</span>
+										<span class="cssui-stats__value">Age</span>
+									</div>
+								</div>
+								<div class="cssui-stats cssui-usercard__stats-item">
+									<i class="cssui-icon icon-man-woman"></i>
+									<div class="cssui-stats__info cssui-usercard__stats-info">
+										<span class="cssui-stats__name cssui-usercard__stats-name">{{user.Gender}}</span>
+										<span class="cssui-stats__value">Gender</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+						
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="cssui-usercard__footer">
+			<button class="btn btn-primary">
+        <a href="{% url 'seller:seller_update' user.id %}" style="color: white;">Update</a>
+    </button> 
+			
+      <button class="btn btn-primary">
+        <a href="{% url 'seller:seller_changepassword' user.id %}" style="color: white;">Change Password</a>
+    </button>
+			         <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DaModal">
+  Delete Account
+  </button>
+ 
+       
+		</footer>
+	</article>
+  
+
+
+     
+        
+    
+</body>
+{% endblock %}

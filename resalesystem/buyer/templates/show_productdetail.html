@@ -1,0 +1,205 @@
+{% extends 'buyer_dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Document</title>
+
+
+    <style>
+      /* Make enquiry button style */
+      #button2 {
+       
+        display: inline-block;
+        transition: all 0.2s ease-in;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        color: #090909;
+        padding: 0.7em 1.7em;
+        font-size: 15px;
+        border-radius: 0.5em;
+        background: #1ffed1;
+        border: 1px solid #e8e8e8;
+        box-shadow: 6px 6px 12px #c5c5c5,
+                   -6px -6px 12px #ffffff;
+      }
+      
+      #button2:active {
+        color: #666;
+        box-shadow: inset 4px 4px 12px #c5c5c5,
+                   inset -4px -4px 12px #ffffff;
+      }
+      
+      #button2:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%) scaleY(1) scaleX(1.25);
+        top: 100%;
+        width: 140%;
+        height: 180%;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        display: block;
+        transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+        z-index: -1;
+      }
+      
+      #button2:after {
+        content: "";
+        position: absolute;
+        left: 55%;
+        transform: translateX(-50%) scaleY(1) scaleX(1.45);
+        top: 180%;
+        width: 160%;
+        height: 190%;
+        background-color: #005a54;
+        border-radius: 50%;
+        display: block;
+        transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+        z-index: -1;
+      }
+      
+      #button2:hover {
+        color: #ffffff;
+        border: 1px solid #009087;
+      }
+      
+      #button2:hover:before {
+        top: -35%;
+        background-color: #009087;
+        transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+      }
+      
+      #button2:hover:after {
+        top: -45%;
+        background-color: #009087;
+        transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+      }
+      /* Make enquiry button style END */
+      
+
+      /* Add to wishlist button */
+      #btn-wishlist{
+        position: relative;
+        background: none;
+        border: solid 1px #121212;
+        transition: linear 250ms;
+        font-size: 30px;
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        color: black;
+      }
+      
+      #btn-wishlist:is(:hover,:focus) {
+        color: #fff;
+      }
+      
+      #btn-wishlist::after {
+        position: absolute;
+        content: '';
+        inset: 0;
+        z-index: -1;
+        background-color: #121212;
+        transform-origin: left;
+        transform: scaleX(0);
+        transition: linear 250ms;
+      }
+      
+      #btn-wishlist:is(:hover, :focus)::after {
+        transform: scale(1);
+      }
+      /* Add to wishlist button END */
+ 
+
+    </style>
+    
+</head>
+<div>
+
+    <!-- Buyer -->
+    <div class="container" style="border:1px solid black;padding:30px;margin-bottom:80px;border-radius:20px 20px 20px 20px;">
+        <div class="row">
+           <div class=" col-md-5" style="padding-bottom:20px;text-align:center;">
+                   <img src="{{pro.Photo.url}}" alt="" height="300px" width="350px">
+           </div>
+           <div class="col-md-5"  >
+            <h3>Product Details</h3><br>
+                    <p style="font-size: 20px;line-height:15px;">Name:</p>{{pro.Product_Name}}
+                    <br>
+                    <br>
+                    <p style="font-size: 20px;line-height:15px;">Description:</p>{{pro.Product_Description}}
+                    <br>
+                    <br>
+                    <p style="font-size: 20px;line-height:15px;">Price:</p>{{pro.Product_Price}}
+
+           </div>
+           
+           
+        <div class="col-md-2">
+                <a href="{% url 'buyer:add_to_wishlist' user.id  pro.id %}" id="btn-wishlist" style="text-decoration: none;margin:80px 20px 20px 20px; ">Add to wishlist</a>
+
+              
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="button2">
+                  Make enquiry
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title">Contact Seller {{pro.Username}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body">
+                        <a  href="https://wa.me/+91{{pro.Mobile}}?text=I'm%20interested%20in%20your%20car%20for%20sale" target="_blank"> 
+                         <img src="{% static 'assets/images/whatsapp.png'%}" width="300px">
+                        </a>
+
+                        <a href="mailto:{{pro.Email}}?subject=I am interested in your product , Can you send more details and photos of the product , Text me {{user.Mobile}}" target="_blank"> 
+                          <img src="{% static 'assets/images/email.png'%}" width="300px">
+                        </a>
+
+                      </div>
+
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+</div>
+        </div>
+      </div>
+            </div>
+                   
+           
+
+
+   
+   <!-- To dashboard -->
+      <ul class="pagination">
+        <li class="page-item active"><a class="page-link" href="{% url 'buyer:buyer_dashboard' user.id %}">Previous</a></li>
+      </ul>
+
+</body>
+{% endblock %}

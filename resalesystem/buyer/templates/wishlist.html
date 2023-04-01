@@ -1,0 +1,385 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- META DATA -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+		
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+		
+        <!-- TITLE OF SITE -->
+        <title>Resell It Again</title>
+
+        <!-- for title img -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'assets/images/logo/favicon.png' %}"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+		
+		<!--linear icon css-->
+		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+		
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+		
+		<!--hover.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/hover-min.css' %}">
+		
+		<!--vedio player css-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+
+		<!--owl.carousel.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+		<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet"/>
+
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+		
+		<!-- bootsnav -->
+		<link href="{% static 'assets/css/bootsnav.css' %}" rel="stylesheet"/>	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"> 
+        
+        <!-- responsive.css -->
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+<style>
+
+  
+ 
+    .dropbtn {
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropbtn img{
+      border: none;
+      background-color:black;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      padding-top:20px;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+
+    }
+    
+    .dropdown-content a:hover {background-color: #b623ff;}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    /* .dropdown:hover .dropbtn {
+      background-color: #3e8e41;
+    } */
+    
+  .card {
+    max-width: 300px;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid black;
+    margin-top: 50px;
+    margin-bottom: 70px;
+  }
+  
+  .content {
+    padding: 1.1rem;
+  }
+  
+  .image img {
+    object-fit: cover;
+    width: 100%;
+    height: 150px;
+    background-color: rgb(239, 205, 255);
+  }
+  
+  .title {
+    color: #111827;
+    font-size: 1.525rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+  
+  .desc {
+    margin-top: 0.5rem;
+    color: #000000;
+    font-size: 1.205rem;
+    line-height: 1.25rem;
+  }
+  
+  .action {
+    display: inline-flex;
+    margin-top: 1rem;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: #2563EB;
+    padding: 7px 12px;
+    border-radius: 4px;
+  }
+  
+
+  
+ 
+  
+</style>
+ 
+
+    </head>
+	
+	<body>
+
+    
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+		
+		
+		
+
+		
+			
+
+		<!--menu start-->
+		<section id="menu">
+			<div class="container">
+				<div class="menubar">
+					<nav class="navbar navbar-default">
+					
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html">
+								<!-- <img src="{% static 'assets/images/logo/logo.png' %}" alt="logo"> -->
+                <h3 style="color: white;font-weight:bolder">ReSell It Again</h3>
+
+							</a>
+						</div><!--/.navbar-header -->
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active">
+                  <a href="{% url 'buyer:buyer_dashboard' user.id %}">Home</a>
+                </li>
+							
+								
+								<li>
+                  <a href="{% url 'buyer:wishlist' user.id  %}"  >wishlist</a>
+                </li>
+                
+								
+								<li>
+                  <a href="{% url 'buyer:b_feedback' user.id %}" style="color: white;font-size:larger;">Feedback</a><br>
+                </li>
+
+                <li>
+                  <div class="dropdown" >
+                    <button class="dropbtn">
+                      <img src="{% static 'assets/images/profile1.png' %}" width="50px" height="50px" >
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="{% url 'buyer:show_profile' user.id  %}" style="color: black;padding-top:10px;">Profile</a>
+                      
+                      <a href="{% url 'buyer:buyer_logout' %}" style="color:rgb(243, 0, 0);">Logout</a>
+
+                    </div>
+                  </div>
+                  
+
+                </li>
+								
+								
+							</ul><!-- / ul -->
+						</div><!-- /.navbar-collapse -->
+					</nav><!--/nav -->
+				</div><!--/.menubar -->
+			</div><!-- /.container -->
+
+		</section><!--/#menu-->
+		<!--menu end--> 
+
+   <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+    {% for pro in pro %}
+
+    <div class="card">
+      <div class="image"><img src="{{pro.Products.Photo.url}}" ></div>
+      <br>
+      <br>
+       <div class="content">
+         <a href="#">
+           <span class="title">
+            {{pro.Products.Product_Name}}
+           </span>
+         </a>
+     
+         <p class="desc">
+          {{pro.Products.Product_Description}}<br>
+          {{pro.Products.Product_Category}}<br>
+          {{pro.Products.Product_Price}}<br>
+          <br>
+          
+         </p>
+     
+          <a href="{% url 'buyer:show_productdetail' user.id pro.Products.id %}" class="action">
+
+           More
+           <span aria-hidden="true">
+             →
+           </span>
+         </a>
+       </div>
+     </div>
+     {% endfor %}
+
+      </div>
+    </div>
+   </div>
+  
+
+    
+        <ul class="pagination">
+          <li class="page-item active"><a class="page-link" href="{% url 'buyer:buyer_dashboard' user.id %}">Previous</a></li>
+        </ul>
+     
+<!--hm-footer start-->
+<section class="hm-footer">
+   <div class="container">
+     <div class="hm-footer-details">
+       <div class="row">
+         <div class="col-md-4 col-sm-6 col-xs-12">
+           <div class="hm-footer-widget">
+             <div class="hm-foot-title ">
+               <div class="logo">
+                 <a href="index.html">
+                   <!-- <img src="{% static 'assets/images/logo/logo.png' %}" alt="logo" /> -->
+                   <h3 style="color: white;font-weight:bolder">ReSell It Again</h3>
+
+                 </a>
+               </div><!-- /.logo-->
+             </div><!--/.hm-foot-title-->
+             <div class="hm-foot-para">
+             </div><!--/.hm-foot-para-->
+             <div class="hm-foot-icon">
+               <ul>
+                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li><!--/li-->
+                 <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li><!--/li-->
+                 <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li><!--/li-->
+                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li><!--/li-->
+               </ul><!--/ul-->
+             </div><!--/.hm-foot-icon-->
+           </div><!--/.hm-footer-widget-->
+         </div><!--/.col-->
+         <div class=" col-md-2 col-sm-6 col-xs-12">
+           <div class="hm-footer-widget">
+             
+           </div><!--/.hm-footer-widget-->
+         </div><!--/.col-->
+         <div class=" col-md-3 col-sm-6 col-xs-12">
+           <div id="scroll-Top">
+             <i class="fa fa-angle-double-up return-to-top" id="scroll-top" data-toggle="tooltip" data-placement="top" title="" data-original-title="Back to Top" aria-hidden="true"></i>
+           </div><!--/.scroll-Top-->
+             </div><!--/.hm-foot-email-->
+           </div><!--/.hm-footer-widget-->
+         </div><!--/.col-->
+       </div><!--/.row-->
+     </div><!--/.hm-footer-details-->
+   </div><!--/.container-->
+
+ </section><!--/.hm-footer-details-->
+ <!--hm-footer end-->
+ 
+ <!-- footer-copyright start -->
+ 
+ <!-- footer-copyright end -->
+
+
+
+ <!-- jaquery link -->
+
+ <script src="{% static 'assets/js/jquery.js' %}"></script>
+     <!-- Include all compiled plugins (below), or include individual files as needed -->
+     
+     <!--modernizr.min.js-->
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+ 
+ 
+ <!--bootstrap.min.js-->
+     <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+ 
+ <!-- bootsnav js -->
+ <script src="{% static 'assets/js/bootsnav.js' %}"></script>
+ 
+ <!-- for manu -->
+ <script src="{% static 'assets/js/jquery.hc-sticky.min.js' %}" type="text/javascript"></script>
+
+ 
+ <!-- vedio player js -->
+ <script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+     <!--owl.carousel.js-->
+     <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+ 
+ <!-- counter js -->
+ <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+ <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+ 
+     <!--Custom JS-->
+     <script type="text/javascript" src="{% static 'assets/js/jak-menusearch.js"></script>
+     <script type="text/javascript" src="{% static 'assets/js/custom.js' %}"></script>
+
+</body>
+</html>

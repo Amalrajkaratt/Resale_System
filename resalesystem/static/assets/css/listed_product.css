@@ -1,0 +1,125 @@
+.card {
+    padding: 10px;
+    max-width: 310px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: rgb(255, 255, 255);
+    font-family: sans-serif;
+  }
+  
+  .content {
+    margin-top: 1rem;
+  }
+  
+  .content .header {
+    margin-top: 0.5rem;
+  }
+  
+  .image {
+    width: 100%;
+    height: 170px;
+    border-radius: 4px;
+    background-color: rgb(205, 235, 255);
+    padding: 9px;
+  }
+  
+  .tag {
+    text-transform: capitalize;
+    background-color: rgba(0, 0, 0, 0.425);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+  }
+  
+  .date {
+    display: flex;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    align-items: center;
+    margin: 2px;
+  }
+  
+  .title {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.35rem;
+    font-weight: 600;
+    padding-bottom: 5px;
+    padding-top: 14px;
+  }
+  
+  .description {
+    line-height: 1.375;
+  }
+
+
+  /* delete button */
+  .btn_del {
+    position: relative;
+    background-color: rgb(230, 34, 77);
+    border-radius: 5px;
+    box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+    padding: 8px;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 104px;
+    height: 39px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .btn_del::before {
+    content: "";
+    background-color: rgb(248, 50, 93);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 700ms ease-in-out;
+    display: inline-block;
+  }
+  
+  .btn_del:hover::before {
+    width: 100%;
+  }
+
+  /* Update button */
+  .btn_update {
+    position: relative;
+    background-color: rgb(89, 39, 255);
+    border-radius: 5px;
+    box-shadow: rgb(4, 17, 200) 0px 4px 0px 0px;
+    padding: 7px 8px 16px 17px ;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    width: 104px;
+    height: 39px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    transition: all .3s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .btn_update::before {
+    content: "";
+    background-color: rgb(98, 66, 255);
+    width: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width 700ms ease-in-out;
+    display: inline-block;
+  }
+  
+  .btn_update:hover::before {
+    width: 100%;
+  }

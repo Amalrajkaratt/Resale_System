@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'assets/css/index.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/contactus.css'%}">
+
+    
+
+    
+     <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+
+</head>	
+<body>
+ <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}},{{user.Fullname}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->  
+    
+    
+   <div class="container" style="margin: 20px 50px 20px 120px;"> 
+    <div class="row">
+        {% for product in product %}
+        <div class="col-md-3">
+            <div class="card" style="margin-top:20px;margin-bottom:50px;">
+                <div class="card-details">
+                  <p class="text-title"><img src="{{product.Photo.url}}" alt="" height="190px" width="215px" style="border-radius: 5px;"></p>
+                  <p class="text-body">{{product.Product_Name}}</p>
+                </div>
+                <a href="{% url 'buyer:buyer_register' %}">
+                <button class="card-button">More info</button>
+                </a>
+              </div>
+                
+        </div>
+        {% endfor %}
+    </div>
+  
+
+		<!--about-us start -->
+		<section class="about-us">
+			<div class="container" >
+					<div class="row">
+						<div class="col-sm-6" >
+							<div class="single-about-us">
+								<div class="about-us-txt">
+									<h2 id="about">about us</h2>
+									<p>
+                                        We enjoy releasing value for our clients. Every single month, hundreds of millions of individuals use our platforms to conveniently, 
+                                        safely, and easily find their ideal house, purchase or sell a car, land a fantastic job, get a great deal on what they need, 
+                                        or sell things they no longer need. Also, we assist thousands of business owners and entrepreneurs in finding clients.
+									</p>
+									
+								</div><!--/.about-us-txt-->
+							</div><!--/.single-about-us-->
+						</div><!--/.col-->
+						
+					</div><!--/.row-->
+				</div><!--/.about-us-content-->
+			</div><!--/.container-->
+
+		</section><!--/.about-us-->
+		<!--about-us end -->
+
+        <form action="{% url 'seller:mail' %}" method="post" class="contact-form" style="margin-left: 100px;" id="Contactus">
+            {% csrf_token %}
+            <h3>Contact us</h3>
+            <div class="form-group">
+                <input  type="text" id="contact_name" name="contact_name" class="form-control" placeholder="Name" required/>
+  
+            </div><br>
+            <div class="form-group">
+                <input type="email" id="contact_email" name="contact_email" class="form-control" placeholder="Email" required/>
+                
+            </div><br>
+            <div class="form-group">
+                <textarea id="contact_message" name="contact_message" class="form-control" row="9" placeholder="Message" required></textarea>
+                
+            </div><br>
+                <button type="submit" id="button">Send</button>
+        </form>
+
+       <br>
+
+</body>	
+{% endblock %}
+	

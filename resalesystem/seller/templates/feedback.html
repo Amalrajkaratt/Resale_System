@@ -1,0 +1,336 @@
+<!doctype html>
+{% load static %}
+<html class="no-js" lang="en">
+
+    <head>
+        <!-- META DATA -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+		
+
+        <!--font-family-->
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+		
+        <!-- TITLE OF SITE -->
+        <title>Resell It Again</title>
+
+        <!-- for title img -->
+		<link rel="shortcut icon" type="image/icon" href="{% static 'assets/images/logo/favicon.png' %}"/>
+       
+        <!--font-awesome.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+		
+		<!--linear icon css-->
+		<link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+		
+		<!--animate.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+		
+		<!--hover.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/hover-min.css' %}">
+		
+		<!--vedio player css-->
+        <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+
+		<!--owl.carousel.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+		<link href="{% static 'assets/css/owl.theme.default.min.css' %}" rel="stylesheet"/>
+
+
+        <!--bootstrap.min.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+		
+		<!-- bootsnav -->
+		<link href="{% static 'assets/css/bootsnav.css' %}" rel="stylesheet"/>	
+        
+        <!--style.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        
+        <!--responsive.css-->
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+        
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		
+        <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <style>
+        form{
+            margin-bottom: 100px;
+        }
+        #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+        margin: 15px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #ddd;
+        
+        }
+        
+        #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 15px;
+        
+        }
+        
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #customers tr:hover {background-color: #ddd;}
+        
+        #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #c342ff;
+        color: white;
+        }
+        
+        
+        .footer {
+        position: fixed;
+        left: 30px;
+        bottom: 7px;
+        right: 15px;
+        width: 86%;
+        margin-left: 30px;
+        background-color: rgba(12, 12, 235, 0);
+        color: rgb(255, 255, 255);
+        text-align: center;
+        
+        }
+
+        button {
+            position: relative;
+            background-color: rgb(230, 34, 77);
+            border-radius: 5px;
+            box-shadow: rgb(121, 18, 55) 0px 4px 0px 0px;
+            padding: 15px;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            width: 154px;
+            height: 49px;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            transition: all .3s ease-in-out;
+            z-index: 1;
+            overflow: hidden;
+            margin-left: 650px;
+          }
+          
+          button::before {
+            content: "";
+            background-color: rgb(248, 50, 93);
+            width: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            transition: width 700ms ease-in-out;
+            display: inline-block;
+          }
+          
+          button:hover::before {
+            width: 100%;
+          }
+       </style>  
+
+         <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+  </head>
+	
+	<body>
+<!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}},{{user.Fullname}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->  
+    
+		<!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+		
+		
+		
+		
+		<!--menu start-->
+		<section id="menu">
+			<div class="container">
+				<div class="menubar">
+					<nav class="navbar navbar-default">
+					
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="index.html">
+								<!-- <img src="{% static 'assets/images/logo/logo.png' %}" alt="logo"> -->
+                                <h3 style="color: white;font-weight:bolder">ReSell It Again</h3>
+
+							</a>
+						</div><!--/.navbar-header -->
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav navbar-right">
+								<li class="active">
+                  <a href="index.html">Home</a>
+                </li>
+								
+                <li>
+                  <a  href="{% url 'buyer:buyer_register' %}"  style="text-decoration: none;">Costumer</a>
+
+                </li>
+								<li>
+                  <a  href="{% url 'seller:sellerregister' %}"  style="text-decoration: none;">Sell</a>
+
+                </li>
+								
+								
+								
+								
+							</ul><!-- / ul -->
+						</div><!-- /.navbar-collapse -->
+					</nav><!--/nav -->
+				</div><!--/.menubar -->
+			</div><!-- /.container -->
+
+		</section><!--/#menu-->
+		<!--menu end-->
+
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h4 style="text-align:center; color: white;">Feedbacks !</h4>
+        <table id="customers">
+            
+            <tr>
+                {{form.as_table}}
+            </tr>
+        </table>
+        <button type="submit">Sent</button>
+    </form>
+   
+    <br>
+  
+<!--hm-footer start-->
+<section class="hm-footer">
+  <div class="container">
+    <div class="hm-footer-details">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="hm-footer-widget">
+            <div class="hm-foot-title ">
+              <div class="logo">
+                <a href="index.html">
+                  <!-- <img src="{% static 'assets/images/logo/logo.png' %}" alt="logo" /> -->
+                  <h3 style="color: white;font-weight:bolder">ReSell It Again</h3>
+
+                </a>
+              </div><!-- /.logo-->
+            </div><!--/.hm-foot-title-->
+            <div class="hm-foot-para">
+            </div><!--/.hm-foot-para-->
+            <div class="hm-foot-icon">
+             
+            </div><!--/.hm-foot-icon-->
+          </div><!--/.hm-footer-widget-->
+        </div><!--/.col-->
+        <div class=" col-md-2 col-sm-6 col-xs-12">
+          <div class="hm-footer-widget">
+            
+          </div><!--/.hm-footer-widget-->
+        </div><!--/.col-->
+        <div class=" col-md-3 col-sm-6 col-xs-12">
+            <h4 class="text-uppercase text-light mb-4" style="color: aliceblue;">Get In Touch</h4>
+            <div class="d-flex mb-2">
+                <i class="bi bi-geo-alt text-primary me-2"></i>
+                <p class="mb-0" style="color: aliceblue;">Kannur, Kerala</p>
+            </div>
+            <div class="d-flex mb-2">
+                <i class="bi bi-envelope-open text-primary me-2"></i>
+                <p class="mb-0" style="color: aliceblue;">reseliitagain244@gmail.com</p>
+            </div>
+            <div class="d-flex mb-2">
+                <i class="bi bi-telephone text-primary me-2"></i>
+                <p class="mb-0" style="color: aliceblue;">+91 9744845738</p>
+            </div>
+            </div><!--/.hm-foot-email-->
+          </div><!--/.hm-footer-widget-->
+        </div><!--/.col-->
+      </div><!--/.row-->
+    </div><!--/.hm-footer-details-->
+  </div><!--/.container-->
+
+</section><!--/.hm-footer-details-->
+<!--hm-footer end-->
+
+
+<!-- jaquery link -->
+
+<script src="{% static 'assets/js/jquery.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    
+    <!--modernizr.min.js-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+
+<!--bootstrap.min.js-->
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+<!-- bootsnav js -->
+<script src="{% static 'assets/js/bootsnav.js' %}"></script>
+
+<!-- for manu -->
+<script src="{% static 'assets/js/jquery.hc-sticky.min.js' %}" type="text/javascript"></script>
+
+
+<!-- vedio player js -->
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!--owl.carousel.js-->
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+<!-- counter js -->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+
+    <!--Custom JS-->
+    <script type="text/javascript" src="{% static 'assets/js/jak-menusearch.js"></script>
+    <script type="text/javascript" src="{% static 'assets/js/custom.js' %}"></script>
+
+
+</body>
+
+</html>
+

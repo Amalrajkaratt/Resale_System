@@ -1,0 +1,88 @@
+{% extends 'seller_dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+     <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+
+</head>
+<body style="background-image: linear-gradient(29deg, #d998ff 50%, #b253fa 50%);">
+
+    <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}},{{user.Fullname}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->            
+
+    <div class="row">    
+        <div class="col-sm-8" style="margin-left: 180px;border:2px solid black;text-align:center;padding:50px;border-radius:20px;line-height:20px;" >
+       <h3> {{user.Fullname}}<br>
+        {{user.Username}}<br>
+        {{user.Email}}<br>
+        {{user.Mobile}}<br>
+        {{user.Age}}<br>
+        {{user.Gender}}<br>
+    </h3>    
+    <br>
+               <button class="btn btn-primary">
+                <a href="{% url 'seller:seller_update' user.id %}" style="color: white;">Update</a>
+            </button> 
+
+            <button class="btn btn-primary">
+                <a href="{% url 'seller:seller_changepassword' user.id %}" style="color: white;">Change Password</a>
+            </button>
+            
+            
+          <!-- Button to Open the Modal -->
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DaModal">
+    Delete Account
+    </button>
+    
+    <!-- The Modal -->
+    <div class="modal" id="DaModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+    
+       
+    
+          <!-- Modal body -->
+          <div class="modal-body" style="font-size: 20px;">
+           Do you want to delete your account ?
+          </div>
+    
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-success" >
+              <a href="{% url 'seller:seller_delete' user.id %}"  style="color:rgb(255, 255, 255);text-decoration:none;">Confirm Delete</a>
+  
+            </button>
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+       
+            </div>
+    </div>
+          
+
+    
+    
+</body>
+{% endblock %}

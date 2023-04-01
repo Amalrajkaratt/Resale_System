@@ -1,0 +1,94 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+
+    <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+</head>
+<body>
+ <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}},{{user.Fullname}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->  
+    
+  
+    <h2 style="text-align: center;margin-bottom:30px;">Seller Details</h2>
+    <table class="table table-bordered table-dark ml-5">
+        <tr>
+            <th>ID</th>
+            <th>Fullame</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Password</th>
+        </tr>
+
+        {% for seller in seller %}
+        <tr>
+           <td>{{seller.id}}</td>
+           <td>{{seller.Fullname}}</td>
+           <td>{{seller.Username}}</td>
+           <td>{{seller.Email}}</td>
+           <td>{{seller.Mobile}}</td>
+           <td>{{seller.Gender}}</td>
+           <td>{{seller.Age}}</td>
+           <td>{{seller.Password}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+    <br>
+
+    <h2 style="text-align: center;margin-bottom:30px;">Buyer Details</h2>
+    <table class="table table-bordered table-dark ml-5">
+        <tr>
+            <th>ID</th>
+            <th>Fullame</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Password</th>
+    
+        </tr>
+    
+        {% for buyer in buyer %}
+        <tr>
+           <td>{{buyer.id}}</td>
+           <td>{{buyer.Fullname}}</td>
+           <td>{{buyer.Username}}</td>
+           <td>{{buyer.Email}}</td>
+           <td>{{buyer.Mobile}}</td>
+           <td>{{buyer.Gender}}</td>
+           <td>{{buyer.Age}}</td>
+           <td>{{buyer.Password}}</td>
+           <td>
+          </td>
+    
+        </tr>
+        {% endfor %}
+    
+    </table>
+  
+</body>
+{% endblock %}

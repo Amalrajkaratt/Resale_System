@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/register.css' %}">
+
+    
+      <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+    <style>
+    
+
+
+          /* Full-width input fields */
+        input[type=text], input[type=password] {
+          width: 100%;
+          padding: 15px;
+          margin: 5px 0 22px 0;
+          display: inline-block;
+          border: none;
+          background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+          background-color: #ddd;
+          outline: none;
+        }
+
+        hr {
+          border: 1px solid #f1f1f1;
+          margin-bottom: 25px;
+        }
+
+        /* Set a style for all buttons */
+        button {
+          background-color: #04AA6D;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+          width: 100%;
+          opacity: 0.9;
+        }
+
+        button:hover {
+          opacity:1;
+        }
+
+        /* Extra styles for the cancel button */
+        .cancelbtn {
+          padding: 14px 20px;
+          background-color: #f44336;
+        }
+
+        /* Float cancel and signup buttons and add an equal width */
+        .cancelbtn, .signupbtn {
+          float: left;
+          width: 50%;
+        }
+
+        /* Add padding to container elements */
+        
+
+        /* Clear floats */
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+
+        /* Change styles for cancel button and signup button on extra small screens */
+        @media screen and (max-width: 300px) {
+          .cancelbtn, .signupbtn {
+            width: 100%;
+          }
+        }
+        </style>
+
+
+
+
+
+          
+</head>
+<body>
+     <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}}');
+        {% endfor %}
+
+    </script>
+    <!-- alert -->
+    
+    <div class="containerreg">
+      <div class="title">Costumer Registration</div>
+      <div class="content">
+        <form action="" method="post" id="form_reg">
+          {% csrf_token %}
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Full Name</span>
+              <input type="text" placeholder="Enter your name" name="Fullname" required id="id_Fullname">
+            </div>
+            <div class="input-box">
+              <span class="details">Username</span>
+              <input type="text" placeholder="Enter your username" name="Username" required id="Username">
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter your email" name="Email" required id="id_Email">
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="text" maxlength="10" placeholder="Enter your number" name="Mobile" required id="id_Mobile">
+            </div>
+            <div class="input-box">
+              <span class="details">Age</span>
+              <input type="text" placeholder="Age" name="Age" required id="id_Age">
+            </div>
+            <div class="input-box">
+              <span class="details" >Gender</span>
+              <select name="Gender" required id="id_Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="text" placeholder="Enter your password" name="Password" required id="id_Password">
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="text" placeholder="Confirm your password" name="ConfirmPassword" required id="id_ConfirmPassword">
+            </div>
+          </div>
+         
+          <button class="button" type="submit">
+            <span class="button-content">Sign Up</span>
+        </button>
+          <!-- <div class="button">
+            <input type="submit" value="Register">
+          </div> -->
+           <br>
+           <br>
+        <div style="text-align: center;">
+          <h4 >Already have an account ?</h4><a href="{% url 'buyer:buyer_login' %}" style="text-decoration: none;color:rgb(24, 24, 255);">
+            Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <br>
+    
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item active"><a class="page-link" href="{% url 'seller:index' %}">Previous</a></li>
+      </ul>
+    </nav>
+    
+</body>
+{% endblock %}

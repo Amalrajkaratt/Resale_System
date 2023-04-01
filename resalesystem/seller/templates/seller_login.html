@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+
+     
+     <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+</head>
+<body>
+  <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}},{{user.Fullname}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->  
+    
+    <!-- <div class="container" >
+        <div class="row" style="margin: 80px;">
+           <div class="col-sm-2"></div>
+
+            <div class="col-sm-8" style="border-radius:10px;padding-left:80px;padding-top:50px;height:400px;">
+                  
+    <form class="form">
+
+      <p class="form-title">Sign in to your account</p>
+       <div class="input-container">
+         <input placeholder="Enter email" type="email" >
+         <span>
+           <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+           </svg>
+         </span>
+     </div>
+
+     <div class="input-container">
+         <input placeholder="Enter password" type="password">
+
+         <span>
+           <svg stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+             <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+             <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>
+           </svg>
+         </span>
+       </div>
+        <button class="submit" type="submit">
+       Sign in
+     </button> -->
+
+
+     <div class="containerl" id="container">
+      
+       <div class="form-container sign-in-container">
+         <form action=""  method="post" id="form_log">
+          {% csrf_token %}
+
+           <h1>Sign in</h1>
+           <input class="input" type="email" placeholder="Email" name="Email" required id="id_Email">
+           <input class="input" type="password" placeholder="Password" name="Password" required id="id_Password">
+           <a href="#">Forgot your password?</a>
+           <button type="submit">Sign In</button>
+         </form>
+       </div>
+       <div class="overlay-container">
+         <div class="overlay">
+         
+           <div class="overlay-panel overlay-right">
+             <h1>Hello, Friend!</h1>
+             <p>Enter your personal details and start journey with us</p>
+           </div>
+         </div>
+       </div>
+     </div>
+   
+            <!-- </div>
+           </div>
+        </div> -->
+       <div class="col-sm-2"></div>
+   
+       <br>
+       <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item active"><a class="page-link" href="{% url 'seller:sellerregister' %}">Previous</a></li>
+        </ul>
+      </nav>
+</body>
+{% endblock %}

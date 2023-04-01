@@ -1,0 +1,89 @@
+{% extends 'seller_dashboard_base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'assets/css/add_product.css' %}">
+     <!-- Alert -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+     <!-- Alert -->
+</head>
+<body style="background-image: linear-gradient(29deg, #d998ff 50%, #b253fa 50%);">
+
+     <!-- alert -->
+    <!-- JavaScript -->
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+        {% for msg in messages %}
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('{{msg}}');
+        {% endfor %}
+    </script>
+    <!-- alert -->
+
+
+    <div class="form_container" >
+
+        <form action="" method="post"  enctype="multipart/form-data" >
+            {% csrf_token %}
+            
+            <table >
+                
+                <tr>
+                    {{form.as_table}}
+                </tr>
+            </table>
+            <br>
+            <button>Add product</button>
+            
+            
+        </form>
+<!-- 
+        <form action="" method="post"  enctype="multipart/form-data">
+          {% csrf_token %}
+
+          <label for="fname"></label>
+          <input type="text" name="Username" value="nikhil53" id="id_Username"><br>
+
+          <label for="lname">Product Name:</label>
+          <input type="text"  name="Product_Name" placeholder="Product Name" required id="id_Product_Name"><br>
+
+          <label ><b>Category</b></label>
+          <select name="Product_Category" required id="id_Product_Category">
+            <option value="Mobile">Mobile</option>
+            <option value="Bike">Bike</option>
+            <option value="Car">Car</option>
+            <option value="Property">Property</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Electronics & Appliances">Electronics & Appliances</option>
+          </select>
+          <br>
+
+          <label for="lname">Description:</label>
+          <textarea cols="30" rows="6" name="Product_Description" placeholder="Describe your product" required id="id_Product_Description"></textarea><br>
+
+          <label for="lname">Image:</label>
+          <input type="file"  name="Photo" required id="id_Photo"><br>
+
+          <label >Product Price:</label>
+          <input type="text"  name="Price" placeholder="Price"><br>
+
+          <label for="lname"></label>
+          <input type="text" name="Mobile" value="9755412899" maxlength="10" required="" id="id_Mobile"><br>
+
+          <label for="lname"></label>
+          <input type="email" name="Email" value="nikhilr2538@gmail.com" maxlength="254" required="" id="id_Email"><br>
+
+          <input type="submit" value="Submit" readonly>
+        </form>
+            </div> -->
+</body>
+{% endblock %}

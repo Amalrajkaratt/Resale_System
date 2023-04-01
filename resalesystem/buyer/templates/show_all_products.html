@@ -1,0 +1,114 @@
+{% extends 'buyer_dashboard_base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+    <style>
+        .card {
+            position: relative;
+            width: 250px;
+            height: 330px;
+            color: #2e2d31;
+            background: #290005;
+            overflow: hidden;
+            border-radius: 20px;
+          }
+          
+          .temporary_text {
+            padding: 0px 0px;
+            color: #f8f8f8;
+          }
+          
+          .card_title {
+            font-weight: bold;
+          }
+          
+          .card_content {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+              /* edit the width to fit card */
+            width: 100%;
+            padding: 20px;
+            background: #e0e0e0;
+            border-top-left-radius: 20px;
+              /* edit here to change the height of the content box */
+            transform: translateY(150px);
+            transition: transform .25s;
+          }
+          
+          .card_content::before {
+            content: '';
+            position: absolute;
+            top: -47px;
+            right: -45px;
+            width: 100px;
+            height: 150px;
+            transform: rotate(-175deg);
+            border-radius: 50%;
+            box-shadow: inset 48px 48px #2a1d1d;
+          }
+          
+          .card_title {
+            color: #131313;
+            line-height: 15px;
+          }
+          
+          .card_subtitle {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 10px;
+          }
+          
+          .card_description {
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity .5s;
+          }
+          
+          .card:hover .card_content {
+            transform: translateY(0);
+          }
+          
+          .card:hover .card_description {
+            opacity: 1;
+            transition-delay: .25s;
+          }
+          
+          
+          
+    </style>
+
+</head>
+<body>
+   <div class="container" style="margin-top: 20px;padding-bottom:25px;border-radius:15px;"> 
+
+    <div class="row">
+        <h2>All products</h2>
+        {% for pro in pro %}
+            <div class="col-md-4" style="margin-top: 40px;">
+                <article class="card" style="margin-left: 50px;">
+                    <div class="temporary_text">
+                        <img src="{{pro.Photo.url}}" alt="" height="190px" width="220px" style="border-radius: 10px;margin-left:14px;margin-top:10px;">
+                    </div>
+                <div class="card_content">
+                  <a href="{% url 'buyer:show_productdetail' user.id pro.id %}" class="btn btn-primary">
+                    <span class="card_title">{{pro.Product_Name}}</span>
+                        <span class="card_subtitle">{{pro.Product_Price}}</span>
+                  </a>
+                    </div>
+                </article>
+                
+            </div>
+            {% endfor %}
+            </div>
+   </div>
+
+   
+</body>
+{% endblock %}
